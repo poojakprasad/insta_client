@@ -12,6 +12,8 @@
     "express": "~4.11.1",
     "morgan": "~1.5.1",
     "bower":"*",
-    "method-override": "*"
+    "method-override": "*",
+    "angular-cookies": "^1.7.0"
+
   }
 }
