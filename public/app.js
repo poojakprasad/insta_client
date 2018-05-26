@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 var app = angular.module('galPhoto',['ngRoute', 'ngResource','ngCookies']);
-=======
-var app = angular.module('galPhoto',['ngRoute', 'ngResource']);
->>>>>>> origin/master
 
 app.config(['$routeProvider', function($routeProvider){
 	$routeProvider.
