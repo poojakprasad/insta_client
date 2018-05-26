@@ -1,17 +1,21 @@
 angular.module('galPhoto')
 
-.factory('instagram', function($resource){
+.factory('instagram', function($resource, $http){
 	return {
 		fetchPopular: function(callback){
-			var api = $resource('https://api.instagram.com/v1/media/popular?client_id=:client_id&callback=JSON_CALLBACK', {
-				client_id: 'c8f7f1ecd8674739b2971eafbc9c7320'
-			},{
-				fetch:{method:'JSONP'}
-			});
-
-			api.fetch(function(response){
-				callback(response.data);
-			});
+			$http({
+                url: 'http://0.0.0.0:5004/popular',
+                method: "GET"
+            }).then(function(response) {
+                if(response) {
+                    var responseData = JSON.parse(response.data)
+                    callback(responseData);
+                }
+            }, function(response) {
+                if(response && response.data) {
+                    callback(response.data.error);
+                }
+            });
 		}
 	}
 })

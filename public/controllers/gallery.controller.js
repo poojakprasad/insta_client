@@ -5,7 +5,6 @@ angular.module('galPhoto')
 	$scope.images = [];
 
 	instagram.fetchPopular(function(data){
-		//console.log(data);
 		$scope.images = data;
 	})
 }])
